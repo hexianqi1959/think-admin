@@ -16,11 +16,11 @@ namespace TAnt\App\Controller;
 
 use think\Request;
 use app\BaseController;
-use app\admin\request\UserRequest;
 use TAnt\App\Service\DeptService;
 use TAnt\App\Service\PostService;
 use TAnt\App\Service\RoleService;
 use TAnt\App\Service\UserService;
+use app\admin\request\UserRequest;
 use TAnt\App\Service\PermissionService;
 
 class User extends BaseController

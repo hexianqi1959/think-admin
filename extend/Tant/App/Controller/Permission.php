@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace TAnt\App\Controller;
 
 use app\BaseController;
-use app\admin\request\PermissionRequest;
 use TAnt\App\Service\PermissionService;
+use app\admin\request\PermissionRequest;
 
 class Permission extends BaseController
 {

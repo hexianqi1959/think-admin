@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace TAnt\App\Controller;
 
 use app\BaseController;
-use app\admin\request\DeptRequest;
 use TAnt\App\Service\DeptService;
+use app\admin\request\DeptRequest;
 
 class Dept extends BaseController
 {

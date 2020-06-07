@@ -17,13 +17,14 @@ namespace TAnt;
 use think\Service;
 use TAnt\Command\Backup\Backup;
 use TAnt\Command\Install\Install;
-use think\annotation\InteractsWithInject;
-use think\annotation\InteractsWithRoute;
 use Doctrine\Common\Annotations\Reader;
+use think\annotation\InteractsWithRoute;
+use think\annotation\InteractsWithInject;
 
 class AppService extends Service
 {
-    use InteractsWithRoute, InteractsWithInject;
+    use InteractsWithRoute;
+    use InteractsWithInject;
 
     /** @var Reader */
     protected $reader;

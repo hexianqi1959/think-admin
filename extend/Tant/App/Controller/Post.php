@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace TAnt\App\Controller;
 
 use app\BaseController;
-use app\admin\request\PostRequest;
 use TAnt\App\Service\PostService;
+use app\admin\request\PostRequest;
 
 class Post extends BaseController
 {

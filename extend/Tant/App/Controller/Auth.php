@@ -17,10 +17,6 @@ namespace TAnt\App\Controller;
 use think\Response;
 use xiaodi\JWTAuth\Facade\Jwt;
 use TAnt\App\Service\UserService;
-use think\Request;
-use think\App;
-use think\Validate;
-use think\annotation\Inject;
 use TAnt\Abstracts\AbstractController;
 
 class Auth extends AbstractController

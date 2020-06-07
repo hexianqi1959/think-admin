@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-namespace TAnt\App\Middleware;;
+namespace TAnt\App\Middleware;
 
 use think\Request;
 use think\Response;

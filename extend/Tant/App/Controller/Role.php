@@ -15,9 +15,9 @@ declare(strict_types=1);
 namespace TAnt\App\Controller;
 
 use app\BaseController;
-use app\admin\request\RoleRequest;
 use TAnt\App\Service\DeptService;
 use TAnt\App\Service\RoleService;
+use app\admin\request\RoleRequest;
 use TAnt\App\Service\PermissionService;
 
 class Role extends BaseController
