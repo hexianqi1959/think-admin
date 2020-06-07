@@ -12,9 +12,9 @@ declare(strict_types=1);
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-namespace Tant\Command\Install;
+namespace TAnt\Command\Install;
 
-use Tant\TAnt;
+use TAnt\TAnt;
 use think\console\Input;
 use think\console\Output;
 use think\facade\Console;

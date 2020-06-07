@@ -12,12 +12,12 @@ declare(strict_types=1);
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-namespace Tant\Abstracts;
+namespace TAnt\Abstracts;
 
 use think\Request;
 use think\Response;
 use think\Validate;
-use Tant\Traits\Error;
+use TAnt\Traits\Error;
 use think\exception\ValidateException;
 
 abstract class AbstractRequest extends Request

@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-namespace Tant\Command\Backup;
+namespace TAnt\Command\Backup;
 
 use think\console\Input;
 use think\console\Output;

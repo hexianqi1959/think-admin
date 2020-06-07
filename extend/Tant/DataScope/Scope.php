@@ -12,10 +12,10 @@ declare(strict_types=1);
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-namespace Tant\DataScope;
+namespace TAnt\DataScope;
 
-use app\common\model\Dept;
-use app\common\model\User;
+use TAnt\App\Model\Dept;
+use TAnt\App\Model\User;
 
 class Scope
 {
@@ -68,7 +68,7 @@ class Scope
                 // 本部门数据及以下部门数据
                 $depts[] = $user->dept_id;
                 $data = Dept::select()->toArray();
-                $category = new \Tant\Util\Category(['dept_id', 'dept_pid', 'dept_name', 'cname']);
+                $category = new \TAnt\Util\Category(['dept_id', 'dept_pid', 'dept_name', 'cname']);
                 $children = array_column($category->getTree($data, $role->dept_id), 'dept_id');
                 if (!empty($children)) {
                     $depts = array_merge($depts, $children);

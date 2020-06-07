@@ -12,14 +12,14 @@ declare(strict_types=1);
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-return [
-    'inject' => [
-        'enable'     => true,
-        'namespaces' => ['app\\', 'TAnt\\'],
-    ],
-    'route' => [
-        'enable'      => true,
-        'controllers' => [],
-    ],
-    'ignore' => [],
-];
+namespace TAnt\App\Model;
+
+use app\BaseModel;
+use app\common\traits\Log;
+use xiaodi\Permission\Contract\PermissionContract;
+
+class Permission extends BaseModel implements PermissionContract
+{
+    use Log;
+    use \xiaodi\Permission\Traits\Permission;
+}

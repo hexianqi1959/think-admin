@@ -12,10 +12,10 @@ declare(strict_types=1);
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-namespace Tant\Abstracts;
+namespace TAnt\Abstracts;
 
 use think\Model;
-use Tant\DataScope\Scope;
+use TAnt\DataScope\Scope;
 
 abstract class AbstractModel extends Model
 {

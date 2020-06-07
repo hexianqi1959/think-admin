@@ -10,7 +10,7 @@
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-namespace Tant\Command\Install;
+namespace TAnt\Command\Install;
 
 class Data
 {

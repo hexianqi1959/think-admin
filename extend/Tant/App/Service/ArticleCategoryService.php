@@ -12,35 +12,26 @@ declare(strict_types=1);
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-namespace TAnt\Abstracts;
+namespace TAnt\App\Service;
 
-use think\Model;
-use think\facade\Db;
-use TAnt\Traits\Error;
+use app\BaseService;
+use TAnt\Util\Category;
+use TAnt\App\Model\ArticleCategory;
+use TAnt\Contract\InterfaceService;
 
-abstract class AbstractService
+class ArticleCategoryService extends BaseService implements InterfaceService
 {
-    use Error;
-
-    public $model;
-
-    public function __construct(Model $model)
+    public function __construct(ArticleCategory $model)
     {
         $this->model = $model;
     }
 
-    public function all()
+    public function list($pageNo, $pageSize)
     {
-        return $this->model->all();
-    }
-
-    public function paginate($pageNo, $pageSize)
-    {
-        $data = $this->model
-            ->paginate([
-                'list_rows' => $pageSize,
-                'page'      => $pageNo,
-            ]);
+        $data = $this->model->paginate([
+            'list_rows' => $pageSize,
+            'page'      => $pageNo,
+        ]);
 
         return [
             'data'       => $data->items(),
@@ -51,14 +42,22 @@ abstract class AbstractService
         ];
     }
 
+    public function tree()
+    {
+        $data = $this->model->order('pid asc')->select()->toArray();
+        $category = new Category(['id', 'pid', 'name']);
+
+        return $category->getTree($data);
+    }
+
+    public function categorys($pid)
+    {
+        return $this->model->where('pid', $pid)->where('disable', 0)->select();
+    }
+
     public function create(array $data)
     {
         return $this->model->save($data);
-    }
-
-    public function find($id)
-    {
-        return $this->model->find($id);
     }
 
     public function update($id, array $data)
@@ -69,10 +68,5 @@ abstract class AbstractService
     public function delete($id)
     {
         return $this->model->find($id)->delete();
-    }
-
-    public function transaction($callback)
-    {
-        return Db::transaction($callback);
     }
 }

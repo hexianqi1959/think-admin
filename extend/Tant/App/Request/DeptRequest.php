@@ -12,14 +12,19 @@ declare(strict_types=1);
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-return [
-    'inject' => [
-        'enable'     => true,
-        'namespaces' => ['app\\', 'TAnt\\'],
-    ],
-    'route' => [
-        'enable'      => true,
-        'controllers' => [],
-    ],
-    'ignore' => [],
-];
+namespace TAnt\App\Request;
+
+use app\BaseRequest;
+
+class DeptRequest extends BaseRequest
+{
+    protected $rule = [
+        'name' => 'require',
+        'pid'  => 'require',
+    ];
+
+    protected $message = [
+        'pid.require'  => '父级必须',
+        'name.require' => '名称必须',
+    ];
+}

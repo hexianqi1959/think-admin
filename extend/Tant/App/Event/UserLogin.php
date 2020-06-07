@@ -12,14 +12,16 @@ declare(strict_types=1);
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-return [
-    'inject' => [
-        'enable'     => true,
-        'namespaces' => ['app\\', 'TAnt\\'],
-    ],
-    'route' => [
-        'enable'      => true,
-        'controllers' => [],
-    ],
-    'ignore' => [],
-];
+namespace TAnt\App\Event;
+
+use TAnt\App\Model\User;
+
+class UserLogin
+{
+    public $user;
+
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+}

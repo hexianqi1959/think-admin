@@ -12,17 +12,36 @@ declare(strict_types=1);
  * @license  https://github.com/edenleung/think-admin/blob/6.0/LICENSE.txt
  */
 
-namespace Tant;
+namespace TAnt;
 
 use think\Service;
-use Tant\Command\Backup\Backup;
-use Tant\Command\Install\Install;
+use TAnt\Command\Backup\Backup;
+use TAnt\Command\Install\Install;
+use think\annotation\InteractsWithInject;
+use think\annotation\InteractsWithRoute;
+use Doctrine\Common\Annotations\Reader;
 
 class AppService extends Service
 {
+    use InteractsWithRoute, InteractsWithInject;
+
+    /** @var Reader */
+    protected $reader;
+
     public function register()
     {
         $this->registerCommand();
+    }
+
+    public function boot(Reader $reader)
+    {
+        $this->reader = $reader;
+
+        //注解路由
+        $this->registerAnnotationRoute();
+
+        //自动注入
+        $this->autoInject();
     }
 
     /**
